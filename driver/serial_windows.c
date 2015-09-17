@@ -26,7 +26,7 @@
 ***************************************************************************
 * Filename      : serial_windows.c
 ***************************************************************************
-* Description   : Schnittstelle für den Zugriff auf serielle Ports unter
+* Description   : Schnittstelle fÃ¼r den Zugriff auf serielle Ports unter
 *                 Windows (Powerline, RS232 und RS485)
 ***************************************************************************
 * Preconditions : Borland C++Builder 4 or GNU-C-Compiler
@@ -106,7 +106,7 @@ void serial_ModemstatusClr(TDevice * dev, DWORD flags);
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 24.04.2001, 1.0, Created
+                   PRÃœSSING, 24.04.2001, 1.0, Created
                    Bakalov,  18.12.2001, 1.1, changes for windows...
 **************************************************************************/
 BOOL serial_open(TDevice * dev)
@@ -211,7 +211,7 @@ BOOL serial_open(TDevice * dev)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 29.03.2001, 1.0, Created
+                   PRÃœSSING, 29.03.2001, 1.0, Created
                    Bakalov,  18.12.2001, 1.1, converted to Windows
 **************************************************************************/
 void serial_close(TDevice * dev)
@@ -248,7 +248,7 @@ void serial_close(TDevice * dev)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 29.03.2001, 1.0, Created
+                   PRÃœSSING, 29.03.2001, 1.0, Created
                    Bakalov,  18.12.2001, 1.1, converted to Windows
 **************************************************************************/
 void serial_WaitBusFree(TDevice * dev)
@@ -256,9 +256,9 @@ void serial_WaitBusFree(TDevice * dev)
 	int iCnt = 0;
    INSTANCE_PTR(dev,struct TSerialWindowsPriv *);
 	/*
-	** Sorge dafür, dass bei Powerline der Bus min 85 bis maximal 115 ms
+	** Sorge dafÃ¼r, dass bei Powerline der Bus min 85 bis maximal 115 ms
 	** frei war und sende erst dann....Der Bus ist frei, wenn das Powerline
-	** Modem dies über die DCD-Leitung mitteilt!
+	** Modem dies Ã¼ber die DCD-Leitung mitteilt!
 	** Vorsicht ein "SunnyBoyControl" benutzt keine DCD-Leitung!
 	*/
 	if (me->media == SERMT_POWERLINE)
@@ -271,7 +271,7 @@ void serial_WaitBusFree(TDevice * dev)
 				/* Schon 1000 ms gewartet? */
 				if ( iCnt > 1005 )
 				{
-					/* Eine Sendung dauer höchstens 1000ms. Wenn es länger dauert
+					/* Eine Sendung dauer hÃ¶chstens 1000ms. Wenn es lÃ¤nger dauert
 					** stimmt was mit dem Powerline-Modem nicht (SBC angeschlossen?)
 					*/
 					YASDI_DEBUG((VERBOSE_WARNING,
@@ -303,7 +303,7 @@ void serial_WaitBusFree(TDevice * dev)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 29.03.2001, 1.0, Created
+                   PRÃœSSING, 29.03.2001, 1.0, Created
                    Bakalov,  18.12.2001, 1.1, converted to Windows
 **************************************************************************/
 void serial_PrepareRecv(TDevice * dev)
@@ -330,7 +330,7 @@ void serial_PrepareRecv(TDevice * dev)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 29.03.2001, 1.0, Created
+                   PRÃœSSING, 29.03.2001, 1.0, Created
                    Bakalov,  18.12.2001, 1.1, converted to Windows
 **************************************************************************/
 void serial_PrepareSend(TDevice * dev)
@@ -361,7 +361,7 @@ void serial_PrepareSend(TDevice * dev)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 29.03.2001, 1.0, Created
+                   PRÃœSSING, 29.03.2001, 1.0, Created
                    Bakalov,  18.12.2001, 1.1, converted to Windows
                    Pruessing,24.12.2001, 1.2, Extract system dependent part
                                               to subcalls
@@ -456,7 +456,7 @@ void serial_write(TDevice * dev, struct TNetPacket * frame,
    Return-Value  : Bytes read...
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 29.03.2001, 1.0, Created
+                   PRÃœSSING, 29.03.2001, 1.0, Created
                    Bakalov,  18.12.2001, 1.1, converted to Windows
                    Pruessing,24.12.2001, 1.2, some changes...
 **************************************************************************/
@@ -485,7 +485,7 @@ DWORD serial_read(TDevice * dev, BYTE * DestBuffer, DWORD dBufferSize,
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 29.03.2001, 1.0, Created
+                   PRÃœSSING, 29.03.2001, 1.0, Created
 **************************************************************************/
 void serial_ModemstatusSet(TDevice * dev, DWORD flags)
 {
@@ -502,7 +502,7 @@ void serial_ModemstatusSet(TDevice * dev, DWORD flags)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 01.11.2001, 1.0, Created
+                   PRÃœSSING, 01.11.2001, 1.0, Created
 **************************************************************************/
 void serial_ModemstatusClr(TDevice * dev, DWORD flags)
 {
@@ -522,7 +522,7 @@ void serial_ModemstatusClr(TDevice * dev, DWORD flags)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 21.10.2001, 1.0, Created
+                   PRÃœSSING, 21.10.2001, 1.0, Created
 **************************************************************************/
 int serial_GetMTU(TDevice * dev)
 {
@@ -546,7 +546,7 @@ int serial_GetMTU(TDevice * dev)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 21.10.2001, 1.0, Created
+                   PRÃœSSING, 21.10.2001, 1.0, Created
 **************************************************************************/
 void serial_destroy(TDevice * dev)
 {
@@ -587,7 +587,7 @@ TDriverEvent serial_GetSupportedEvents(TDevice * dev)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 21.10.2001, 1.0, Created
+                   PRÃœSSING, 21.10.2001, 1.0, Created
 **************************************************************************/
 TDevice * serial_create(DWORD dUnit)
 {
@@ -675,7 +675,7 @@ TDevice * serial_create(DWORD dUnit)
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 21.10.2001, 1.0, Created
+                   PRÃœSSING, 21.10.2001, 1.0, Created
 **************************************************************************/
 void  serial_CreateAll()
 {
@@ -710,8 +710,8 @@ void  serial_CreateAll()
                    != 0 => Fehler
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 10.04.2001, 1.0, Created
-                   Prüssing, 23.06.2001, 1.1, Übergabe von Repository und
+                   PRÃœSSING, 10.04.2001, 1.0, Created
+                   PrÃ¼ssing, 23.06.2001, 1.1, Ãœbergabe von Repository und
                                               Registrierungsfunktion per
                                               Parameter
 **************************************************************************/
@@ -743,7 +743,7 @@ SHARED_FUNCTION int InitYasdiModule(void * RegFuncPtr,
    Return-Value  : ---
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 10.04.2001, 1.0, Created
+                   PRÃœSSING, 10.04.2001, 1.0, Created
 **************************************************************************/
 SHARED_FUNCTION void CleanupYasdiModule(void)
 {
@@ -768,7 +768,7 @@ SHARED_FUNCTION void CleanupYasdiModule(void)
    Return-Value  : written bytes...
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 23.12.2001, 1.0, Created
+                   PRÃœSSING, 23.12.2001, 1.0, Created
 **************************************************************************/
 DWORD serial_RawWrite(TDevice * dev, BYTE * buffer, DWORD bufferSize)
 {
@@ -826,7 +826,7 @@ DWORD serial_RawWrite(TDevice * dev, BYTE * buffer, DWORD bufferSize)
    Return-Value  : bytes read...
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 23.12.2001, 1.0, Created
+                   PRÃœSSING, 23.12.2001, 1.0, Created
 **************************************************************************/
 DWORD serial_RawRead(TDevice * dev, BYTE * DestBuffer, DWORD dBufferSize)
 {
@@ -877,7 +877,7 @@ DWORD serial_RawRead(TDevice * dev, BYTE * DestBuffer, DWORD dBufferSize)
                    false : Leitung NICHT gesetzt
    Changes       : Author, Date, Version, Reason
                    ********************************************************
-                   PRÜSSING, 25.03.2002, 1.0, erzeugt
+                   PRÃœSSING, 25.03.2002, 1.0, erzeugt
 **************************************************************************/
 BOOL serial_IsDCDSet( TDevice * dev )
 {

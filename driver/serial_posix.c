@@ -27,9 +27,9 @@
 *  V1.8.1Build8
 *  Revision 1.11 2009/10/13 16:40:44CEST Heiko Pruessing (pruessing) 
 *  div changes YASDI 1.8.1 Build 7
-*  Revision 1.10 2009/02/25 10:47:36CET Heiko Prüssing (pruessing) 
+*  Revision 1.10 2009/02/25 10:47:36CET Heiko Prï¿½ssing (pruessing) 
 *  1.8.1 build 1
-*  Revision 1.9 2008/08/13 13:39:11CEST Heiko Prüssing (pruessing) 
+*  Revision 1.9 2008/08/13 13:39:11CEST Heiko Prï¿½ssing (pruessing) 
 *  .
 *  Revision 1.8 2008/04/07 10:37:05CEST Heiko Prssing (pruessing) 
 *  .
@@ -399,11 +399,30 @@ SHARED_FUNCTION void serial_write(TDevice * dev,
    // transmit all buffer fragments 
    startagain: 
    {
+   char* gpio_no;
+   if (strcmp("/dev/ttyO1", this->cPort) == 0)
+   {
+     gpio_no= "68";
+   }
+   if (strcmp("/dev/ttyO3", this->cPort) == 0)
+   {
+     gpio_no= "66";
+   }
+   if (strcmp("/dev/ttyO4", this->cPort) == 0)
+   {    
+     gpio_no= "67";
+   }
+
+
       BYTE * framedata=NULL;
       WORD framedatasize=0;
       FOREACH_IN_BUFFER(frame, framedata, &framedatasize)
       {
+         long gpio_switch_time_usec = 11076900 * ((double)(framedatasize) / (double)(1200));
+         setValue(1, gpio_no);
          ires = write(this->fd, framedata, framedatasize);
+         usleep(gpio_switch_time_usec);
+         setValue(0, gpio_no);
          if (ires < 0)
          {
             YASDI_DEBUG((VERBOSE_HWL, "serial_write: Write error: %d code = %s\n", 
@@ -973,6 +992,7 @@ void serial_aio_completion_handler( sigval_t sigval )
    return;
 }
 #endif
+
 
 
 
