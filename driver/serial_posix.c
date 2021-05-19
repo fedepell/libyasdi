@@ -70,7 +70,7 @@
 #include "copyright.h"
 #include "version.h"
 
-
+#include <linux/serial.h>
 
 
 /**************************************************************************
@@ -159,6 +159,19 @@ SHARED_FUNCTION BOOL serial_open(TDevice * dev)
    this->fd = open( this->cPort, O_RDWR | O_NOCTTY | O_NDELAY );
    if (this->fd >= 0)
    {
+      struct serial_rs485 rs485conf;
+
+      if (ioctl (this->fd, TIOCGRS485, &rs485conf) < 0) {
+          printf("Error: TIOCGRS485 ioctl not supported.\n");
+      }
+
+      /* Enable RS-485 mode: */
+      rs485conf.flags |= SER_RS485_ENABLED;
+
+      if (ioctl (this->fd, TIOCSRS485, &rs485conf) < 0) {
+          printf("Error: TIOCSRS485 ioctl not supported.\n");
+      }
+
       // don't block 
       fcntl(this->fd, F_SETFL, FNDELAY);
 
