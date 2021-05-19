@@ -125,7 +125,7 @@ extern "C" {
 *   G L O B A L
 **************************************************************************/
 
-#define DEVMAX 30       //For simplicity we use here maximal 30 devices ...
+#define DEVMAX 100       //For simplicity we use here maximal 30 devices ...
 #define MAXDRIVERS 10   //... and 10 YASDI Bus drivers
 #define EXPECT_CHAN_CNT 300  //lets say that we expect 300 channels in max
                              //for one device

@@ -133,7 +133,7 @@ void * os_malloc(DWORD size)
 	void * res = malloc(size + sizeof(DWORD)); /* add mem for memory size (debugging)*/
    if (size>0x0fff)
       YASDI_DEBUG((VERBOSE_MEMMANAGEMENT,"###Alloc big block of %ld\n", size ));
-   assert(size <= 0xffff);
+   // assert(size <= 0xffff);
 
    CurUsedMem += size;
    *((DWORD*)res) = size;
