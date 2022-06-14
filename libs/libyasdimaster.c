@@ -920,6 +920,7 @@ SHARED_FUNCTION int SetChannelValue(DWORD dChannelHandle,
 
 
    //does we have enough access rights to write this channel?
+/*
    if (!TChannel_IsLevel(chan,TSecurity_getCurLev(),CHECK_WRITE))
    {
       YASDI_DEBUG((VERBOSE_LIBRARY,
@@ -929,7 +930,7 @@ SHARED_FUNCTION int SetChannelValue(DWORD dChannelHandle,
                    TChannel_GetName(chan)));
       return YE_NO_ACCESS_RIGHTS;
    }
-
+*/
    //Ueberpruefe, ob der neue Wert im zulaessigen Wertebereich des
    //Kanals liegt
    iRes = GetChannelValRange(dChannelHandle, &min, &max);
@@ -1758,6 +1759,7 @@ SHARED_FUNCTION int SetChannelValueString(DWORD dChannelHandle,
    if (YE_OK != res ) return res;
 
    //does we have enough access rights to write this channel?
+/*
    if (!TChannel_IsLevel(chan,TSecurity_getCurLev(),CHECK_WRITE))
    {
       YASDI_DEBUG((VERBOSE_LIBRARY,
@@ -1766,7 +1768,7 @@ SHARED_FUNCTION int SetChannelValueString(DWORD dChannelHandle,
                    TChannel_GetName(chan)));
       return YE_NO_ACCESS_RIGHTS;
    }
-
+*/
    //Set the channel value as an string is only possible on
    //status text channels...
    if (TChannel_GetStatTextCnt(chan)==0)
@@ -1907,6 +1909,7 @@ SHARED_FUNCTION int SetChannelValueAsync(DWORD dChannelHandle,
    }
 
    //does we have enough access rights to write this channel?
+/*
    if (!TChannel_IsLevel(chan,TSecurity_getCurLev(),CHECK_WRITE))
    {
       YASDI_DEBUG((VERBOSE_LIBRARY,
@@ -1915,7 +1918,7 @@ SHARED_FUNCTION int SetChannelValueAsync(DWORD dChannelHandle,
                    TChannel_GetName(chan)));
       return YE_NO_ACCESS_RIGHTS;
    }
-
+*/
    //Ueberpruefe, ob der neue Wert im zulaessigen Wertebereich des
    //Kanals liegt
    iRes = GetChannelValRange(dChannelHandle, &min, &max);
