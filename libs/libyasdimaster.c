@@ -518,6 +518,7 @@ SHARED_FUNCTION int GetChannelValue(DWORD dChannelHandle,
 
    
    // Does we have the right access rights?
+/*
    if (!TChannel_IsLevel( chan, TSecurity_getCurLev(), CHECK_READ))
    {
       YASDI_DEBUG((VERBOSE_LIBRARY,
@@ -527,7 +528,7 @@ SHARED_FUNCTION int GetChannelValue(DWORD dChannelHandle,
                    TNetDevice_GetName( dev ) ) );
       return YE_NO_ACCESS_RIGHTS;
    }
-
+*/
 
    //Check if channel value age is new enough.
    //If it is tool old, request new channel value...
@@ -646,6 +647,7 @@ SHARED_FUNCTION int GetChannelValueAsync(DWORD dChannelHandle,
    /*
     * Does we have the right access rights?
     */
+/*
    if (!TChannel_IsLevel( chan, TSecurity_getCurLev(), CHECK_READ))
    {
       YASDI_DEBUG((VERBOSE_LIBRARY,
@@ -655,7 +657,7 @@ SHARED_FUNCTION int GetChannelValueAsync(DWORD dChannelHandle,
                    TNetDevice_GetName( dev ) ) );
       return YE_NO_ACCESS_RIGHTS;
    }
-
+*/
 
    //Check if channel value age is new enough.
    //If it is tool old, request new channel value...
