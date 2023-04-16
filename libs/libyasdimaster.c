@@ -1673,9 +1673,9 @@ SHARED_FUNCTION int GetChannelAccessRights(DWORD dchannelHandle,
 
 	//ok, we got the channel...
    //check the current read and write security level...
-   if (TChannel_IsLevel(chan, TSecurity_getCurLev(), CHECK_READ))
+   //if (TChannel_IsLevel(chan, TSecurity_getCurLev(), CHECK_READ))
       *accessrights |= CAR_READ;
-   if (TChannel_IsLevel(chan, TSecurity_getCurLev(), CHECK_WRITE))
+   //if (TChannel_IsLevel(chan, TSecurity_getCurLev(), CHECK_WRITE))
       *accessrights |= CAR_WRITE;
 
    return YE_OK;
