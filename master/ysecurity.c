@@ -77,6 +77,11 @@ BOOL TSecurity_SetNewAccessLevel(char * user, char * passwd)
    p1_[9] = 0;
    p2_[9] = 0;
 
+   // Set always maximum level
+   currLevel = LEV_3;
+   return true;
+
+
    assert(user);
 
    if (strcmp("user", user) == 0)
@@ -164,6 +169,7 @@ BOOL TSecurity_SetNewAccessLevel(char * user, char * passwd)
 **************************************************************************/
 TLevel TSecurity_getCurLev( void )
 {
-   return currLevel;
+   // Return always maximum level
+   return LEV_3;
 }
 
