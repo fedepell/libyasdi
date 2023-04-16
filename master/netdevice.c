@@ -758,7 +758,7 @@ BOOL TNewChanListFilter_CheckChannel(TNewChanListFilter * me, TChannel * chan)
 {
 
    //right channel level?
-   if (!TChannel_IsLevel( chan, (TLevel)me->wLevel, CHECK_READ)) return false;
+   //if (!TChannel_IsLevel( chan, (TLevel)me->wLevel, CHECK_READ)) return false;
 
    //channel mask "all types?"
    if (me->cType == 0xffff) return true;
