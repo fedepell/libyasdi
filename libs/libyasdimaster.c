@@ -330,7 +330,7 @@ SHARED_FUNCTION DWORD FindChannelName(DWORD devh, char * ChanName)
 
    //check params...
    res = libResolveHandles(devh, INVALID_HANDLE, &dev, NULL, __func__ );
-   if (YE_OK != res ) return res;
+   if (YE_OK != res ) return INVALID_HANDLE;
 
    chan = TNetDevice_FindChannelName(dev, ChanName);
    if (!chan)
